@@ -22,13 +22,13 @@ function createErrorType(name, init, superErrorClass = Error) {
     return JsJodaException;
 }
 
-export const DateTimeException = createErrorType('DateTimeException', messageWithCause);
-export const DateTimeParseException = createErrorType('DateTimeParseException', messageForDateTimeParseException);
-export const UnsupportedTemporalTypeException = createErrorType('UnsupportedTemporalTypeException', null, DateTimeException);
-export const ArithmeticException = createErrorType('ArithmeticException');
-export const IllegalArgumentException = createErrorType('IllegalArgumentException');
-export const IllegalStateException = createErrorType('IllegalStateException');
-export const NullPointerException = createErrorType('NullPointerException');
+export function DateTimeException                (){} //= createErrorType('DateTimeException', messageWithCause);
+export function DateTimeParseException           (){} //= createErrorType('DateTimeParseException', messageForDateTimeParseException);
+export function UnsupportedTemporalTypeException (){} //= createErrorType('UnsupportedTemporalTypeException', null, DateTimeException);
+export function ArithmeticException              (){} //= createErrorType('ArithmeticException');
+export function IllegalArgumentException         (){} //= createErrorType('IllegalArgumentException');
+export function IllegalStateException            (){} //= createErrorType('IllegalStateException');
+export function NullPointerException             (){} //= createErrorType('NullPointerException');
 
 function messageWithCause(message, cause = null) {
     let msg = message || this.name;
