@@ -809,7 +809,7 @@ class Unit extends TemporalUnit {
     }
 
     toString() {
-        return name;
+        return this._name;
     }
 }
 
