@@ -1,6 +1,6 @@
 /*
- * @copyright (c) 2016, Philipp Thürwächter & Pattrick Hüper
- * @license BSD-3-Clause (see LICENSE.md in the root directory of this source tree)
+ * copyright (c) 2016, Philipp Thürwächter & Pattrick Hüper
+ * license BSD-3-Clause (see LICENSE.md in the root directory of this source tree)
  */
 
 /**
