@@ -82,7 +82,6 @@ export class TemporalAdjuster {
      * @throws DateTimeException if unable to make the adjustment
      * @throws ArithmeticException if numeric overflow occurs
      *
-     * @abstract
      */
     // eslint-disable-next-line no-unused-vars
     adjustInto(temporal){

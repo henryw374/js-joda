@@ -47,7 +47,6 @@ import {TemporalQueries} from '../temporal/TemporalQueries';
  * In JDK 8, this is an interface with default methods.
  * Since there are no default methods in JDK 7, an abstract class is used.
  *
- * @param D the date type
  */
 export class ChronoLocalDateTime extends DefaultInterfaceTemporal {
     /* <D extends ChronoLocalDate>

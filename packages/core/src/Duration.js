@@ -262,7 +262,7 @@ export class Duration extends TemporalAmount /*implements TemporalAmount, Compar
                 // ignore and only use seconds
             }
         }
-        return this.ofSeconds(secs, nanos);
+        return Duration.ofSeconds(secs, nanos);
     }
 
     //-----------------------------------------------------------------------
