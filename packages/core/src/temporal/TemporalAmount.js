@@ -39,7 +39,7 @@ export class TemporalAmount {
      * value of the {@link TemporalAmount}.  A value must be returned
      * for each unit listed in {@link getUnits}.
      *
-     * @implSpec
+     * implSpec
      * Implementations may declare support for units not listed by {@link getUnits}.
      * Typically, the implementation would define additional units
      * as conversions for the convenience of developers.
@@ -62,7 +62,7 @@ export class TemporalAmount {
      * The units are ordered from longest duration to the shortest duration
      * of the unit.
      *
-     * @implSpec
+     * implSpec
      * The list of units completely and uniquely represents the
      * state of the object without omissions, overlaps or duplication.
      * The units are in order from longest duration to shortest.
@@ -90,7 +90,7 @@ export class TemporalAmount {
      * It is recommended to use the second approach, {@link plus},
      * as it is a lot clearer to read in code.
      *
-     * @implSpec
+     * implSpec
      * The implementation must take the input object and add to it.
      * The implementation defines the logic of the addition and is responsible for
      * documenting that logic. It may use any method on {@link Temporal} to
@@ -135,7 +135,7 @@ export class TemporalAmount {
      * It is recommended to use the second approach, {@link minus},
      * as it is a lot clearer to read in code.
      *
-     * @implSpec
+     * implSpec
      * The implementation must take the input object and subtract from it.
      * The implementation defines the logic of the subtraction and is responsible for
      * documenting that logic. It may use any method on {@link Temporal} to

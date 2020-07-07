@@ -167,7 +167,7 @@ export class Duration extends TemporalAmount /*implements TemporalAmount, Compar
             nos += LocalTime.NANOS_PER_SECOND;
             secs--;
         }
-        return this._create(secs, nos);
+        return Duration._create(secs, nos);
     }
 
     //-----------------------------------------------------------------------

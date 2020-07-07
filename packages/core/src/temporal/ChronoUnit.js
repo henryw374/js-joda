@@ -313,7 +313,7 @@ export class ChronoUnit extends TemporalUnit {
      * If the unit is not supported an {@link UnsupportedTemporalTypeException} must be thrown.
      * Implementations must not alter the specified temporal objects.
      *
-     * @implSpec
+     * implSpec
      * Implementations must begin by checking to if the two temporals have the
      * same type using `.constructor.name`. If they do not, then the result must be
      * obtained by calling `temporal1.until`.

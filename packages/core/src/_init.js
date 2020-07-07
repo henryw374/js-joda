@@ -24,7 +24,7 @@ import {_init as ChronoUnitInit} from './temporal/ChronoUnit';
 import {_init as IsoFieldsInit} from './temporal/IsoFields';
 import {_init as DateTimeFormatterBuilderInit} from './format/DateTimeFormatterBuilder';
 
-import {_init as TemporalQueriesInit} from './temporal/TemporalQueriesFactory';
+import {_init as TemporalQueriesFactoryInit } from './temporal/TemporalQueriesFactory';
 import {_init as ZoneIdInit} from './ZoneIdFactory';
 
 let isInit = false;
@@ -43,7 +43,7 @@ function init() {
     ChronoFieldInit();
     LocalTimeInit();
     IsoFieldsInit();
-    TemporalQueriesInit();
+    TemporalQueriesFactoryInit();
     DayOfWeekInit();
     InstantInit();
     LocalDateInit();

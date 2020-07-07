@@ -26,7 +26,7 @@ export class TemporalAccessor {
      * Further implementations are on {@link TemporalQueries}.
      * Queries may also be defined by applications.
      *
-     * @implSpec
+     * implSpec
      * Implementations of this method must behave as follows:
      * <pre>
         if (query == TemporalQueries.zoneId()
