@@ -1195,11 +1195,10 @@ export class Duration extends TemporalAmount /*implements TemporalAmount, Compar
         return this.toString();
     }
 
-}
 
-export function _init() {
     /**
      * Constant for a duration of zero.
      */
-    Duration.ZERO = new Duration(0, 0);
+    static get ZERO() {delete Duration.ZERO; Duration.ZERO = new Duration(0, 0);
+                        return Duration.ZERO;}
 }
