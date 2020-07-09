@@ -422,24 +422,21 @@ export class DayOfWeek extends TemporalAccessor {
     toJSON() {
         return this.toString();
     }
-}
 
-let ENUMS;
+    static get MONDAY() { delete DayOfWeek.MONDAY;  DayOfWeek.MONDAY =  new DayOfWeek(0, 'MONDAY'); return DayOfWeek.MONDAY;};
+    static get TUESDAY() { delete DayOfWeek.TUESDAY; DayOfWeek.TUESDAY =  new DayOfWeek(1, 'TUESDAY'); return DayOfWeek.TUESDAY};
+    static get WEDNESDAY() { delete DayOfWeek.WEDNESDAY; DayOfWeek.WEDNESDAY =  new DayOfWeek(2, 'WEDNESDAY'); return DayOfWeek.WEDNESDAY};
+    static get THURSDAY() { delete DayOfWeek.THURSDAY; DayOfWeek.THURSDAY =  new DayOfWeek(3, 'THURSDAY'); return DayOfWeek.THURSDAY};
+    static get FRIDAY() { delete DayOfWeek.FRIDAY; DayOfWeek.FRIDAY =  new DayOfWeek(4, 'FRIDAY'); return DayOfWeek.FRIDAY};
+    static get SATURDAY() { delete DayOfWeek.SATURDAY; DayOfWeek.SATURDAY =  new DayOfWeek(5, 'SATURDAY'); return DayOfWeek.SATURDAY};
+    static get SUNDAY() { delete DayOfWeek.SUNDAY; DayOfWeek.SUNDAY =  new DayOfWeek(6, 'SUNDAY'); return DayOfWeek.SUNDAY};
 
-export function _init() {
-    DayOfWeek.MONDAY = new DayOfWeek(0, 'MONDAY');
-    DayOfWeek.TUESDAY = new DayOfWeek(1, 'TUESDAY');
-    DayOfWeek.WEDNESDAY = new DayOfWeek(2, 'WEDNESDAY');
-    DayOfWeek.THURSDAY = new DayOfWeek(3, 'THURSDAY');
-    DayOfWeek.FRIDAY = new DayOfWeek(4, 'FRIDAY');
-    DayOfWeek.SATURDAY = new DayOfWeek(5, 'SATURDAY');
-    DayOfWeek.SUNDAY = new DayOfWeek(6, 'SUNDAY');
-
-    DayOfWeek.FROM = createTemporalQuery('DayOfWeek.FROM', (temporal) => {
+    static get FROM() {delete DayOfWeek.FROM; DayOfWeek.FROM =  createTemporalQuery('DayOfWeek.FROM', (temporal) => {
         return DayOfWeek.from(temporal);
-    });
+    }); return DayOfWeek.FROM;}
 
-    ENUMS = [
+    static get ENUMS() {delete DayOfWeek.ENUMS; 
+           DayOfWeek.ENUMS =   [
         DayOfWeek.MONDAY,
         DayOfWeek.TUESDAY,
         DayOfWeek.WEDNESDAY,
@@ -448,4 +445,6 @@ export function _init() {
         DayOfWeek.SATURDAY,
         DayOfWeek.SUNDAY
     ];
+    return DayOfWeek.ENUMS;
+    }
 }

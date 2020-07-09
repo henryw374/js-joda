@@ -65,12 +65,12 @@ const  DAYS_0000_TO_1970 = (DAYS_PER_CYCLE * 5) - (30 * 365 + 7);
  *
  * ### Static properties of Class {@link LocalDate}
  *
- * LocalDate.MIN = LocalDate.of(Year.MIN_VALUE, 1, 1);
+ * static get MIN() { return LocalDate.of(Year.MIN_VALUE, 1, 1);
  *
  * The minimum supported {@link LocalDate}
  * This could be used by an application as a "far past" date.
  *
- * LocalDate.MAX = LocalDate.of(Year.MAX_VALUE, 12, 31);
+ * static get MAX() { return LocalDate.of(Year.MAX_VALUE, 12, 31);
  *
  * The maximum supported {@link LocalDate}
  * This could be used by an application as a "far future" date.
@@ -1671,25 +1671,23 @@ export class LocalDate extends ChronoLocalDate{
         requireInstance(formatter, DateTimeFormatter, 'formatter');
         return super.format(formatter);
     }
-}
 
-export function _init() {
     /**
      * The minimum supported {@link LocalDate}
      * This could be used by an application as a "far past" date.
      */
-    LocalDate.MIN = LocalDate.of(YearConstants.MIN_VALUE, 1, 1);
+    static get MIN() { return LocalDate.of(YearConstants.MIN_VALUE, 1, 1);}
     /**
      * The maximum supported {@link LocalDate}
      * This could be used by an application as a "far future" date.
      */
-    LocalDate.MAX = LocalDate.of(YearConstants.MAX_VALUE, 12, 31);
+    static get MAX() { return LocalDate.of(YearConstants.MAX_VALUE, 12, 31);}
     /**
      * The date at epoch day 0, that is 1970-01-01.
      */
-    LocalDate.EPOCH_0 = LocalDate.ofEpochDay(0);
+    static get EPOCH_0() { return LocalDate.ofEpochDay(0);}
 
-    LocalDate.FROM = createTemporalQuery('LocalDate.FROM', (temporal) => {
+    static get FROM() { return createTemporalQuery('LocalDate.FROM', (temporal) => {
         return LocalDate.from(temporal);
-    });
+    });}
 }

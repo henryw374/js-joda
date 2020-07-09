@@ -17,10 +17,10 @@ export class ZoneId {
      *
      * @return {ZoneId} the zone ID, not null
      */
-    static systemDefault() {
-        // Find implementation at {@link ZoneIdFactory}
-        throw new DateTimeException('not supported operation');
-    }
+   // static systemDefault() {
+   //     // Find implementation at {@link ZoneIdFactory}
+   //     throw new DateTimeException('not supported operation');
+   // }
 
     /**
      * Gets the set of available zone IDs.
@@ -34,10 +34,10 @@ export class ZoneId {
      *
      * @return {string[]} a modifiable copy of the set of zone IDs, not null
      */
-    static getAvailableZoneIds() {
-        // Find implementation at {@link ZoneIdFactory}
-        throw new DateTimeException('not supported operation');
-    }
+    //static getAvailableZoneIds() {
+    //    // Find implementation at {@link ZoneIdFactory}
+    //    throw new DateTimeException('not supported operation');
+    //}
 
     /**
      * Obtains an instance of {@link ZoneId} from an ID ensuring that the
@@ -78,10 +78,10 @@ export class ZoneId {
      * @throws DateTimeException if the zone ID has an invalid format
      * @throws ZoneRulesException if the zone ID is a region ID that cannot be found
      */
-    static of(zoneId) {
-        // Find implementation at {@link ZoneIdFactory}
-        throw new DateTimeException('not supported operation' + zoneId);
-    }
+    //static of(zoneId) {
+    //    // Find implementation at {@link ZoneIdFactory}
+    //    throw new DateTimeException('not supported operation' + zoneId);
+    //}
 
     /**
      * Obtains an instance of {@link ZoneId} wrapping an offset.
@@ -96,10 +96,10 @@ export class ZoneId {
      * @throws IllegalArgumentException if the prefix is not one of
      *     'GMT', 'UTC', or 'UT', or ''
      */
-    static ofOffset(prefix, offset) {
-        // Find implementation at {@link ZoneIdFactory}
-        throw new DateTimeException('not supported operation' + prefix + offset);
-    }
+   // static ofOffset(prefix, offset) {
+   //     // Find implementation at {@link ZoneIdFactory}
+   //     throw new DateTimeException('not supported operation' + prefix + offset);
+   // }
 
 
     /**
@@ -118,10 +118,10 @@ export class ZoneId {
      * @return {ZoneId} the zone ID, not null
      * @throws DateTimeException if unable to convert to a {@link ZoneId}
      */
-    static from(temporal) {
-        // Find implementation at {@link ZoneIdFactory}
-        throw new DateTimeException('not supported operation' + temporal);
-    }
+   // static from(temporal) {
+   //     // Find implementation at {@link ZoneIdFactory}
+   //     throw new DateTimeException('not supported operation' + temporal);
+   // }
 
     //-----------------------------------------------------------------------
     /**
@@ -233,4 +233,13 @@ export class ZoneId {
     toJSON() {
         return this.toString();
     }
+    
+      static get systemDefault() { return ZoneIdFactory.systemDefault; }
+        static get getAvailableZoneIds() { return ZoneIdFactory.getAvailableZoneIds; }
+        static get of() { return ZoneIdFactory.of; }
+        static get ofOffset() { return ZoneIdFactory.ofOffset; }
+        static get from() { return ZoneIdFactory.from; }
+        static get SYSTEM() { return SYSTEM_DEFAULT_ZONE_ID_INSTANCE; }
+            static get UTC() { return ZoneOffset.ofTotalSeconds(0); }
+      
 }

@@ -252,7 +252,7 @@ export class MonthDay extends TemporalAccessor {
      * @throws DateTimeParseException if the text cannot be parsed
      */
     static parseString(text) {
-        return MonthDay.parseStringFormatter(text, PARSER);
+        return MonthDay.parseStringFormatter(text, MonthDay.PARSER);
     }
 
     /**
@@ -712,19 +712,16 @@ export class MonthDay extends TemporalAccessor {
         return formatter.format(this);
     }
 
-}
 
-let PARSER;
-
-export function _init() {
-    PARSER = new DateTimeFormatterBuilder()
+    static get PARSER() { return new DateTimeFormatterBuilder()
         .appendLiteral('--')
         .appendValue(ChronoField.MONTH_OF_YEAR, 2)
         .appendLiteral('-')
         .appendValue(ChronoField.DAY_OF_MONTH, 2)
         .toFormatter();
+        }
 
-    MonthDay.FROM = createTemporalQuery('MonthDay.FROM', (temporal) => {
+    static get FROM() {return  createTemporalQuery('MonthDay.FROM', (temporal) => {
         return MonthDay.from(temporal);
-    });
+    });}
 }
