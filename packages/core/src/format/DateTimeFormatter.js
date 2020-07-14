@@ -620,19 +620,16 @@ export class DateTimeFormatter {
         return pattern.indexOf('[') === 0 ? pattern : pattern.substring(1, pattern.length - 1);
     }
 
-}
 
-export function _init() {
-
-    DateTimeFormatter.ISO_LOCAL_DATE = new DateTimeFormatterBuilder()
+    static get ISO_LOCAL_DATE() { return new DateTimeFormatterBuilder()
         .appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
         .appendLiteral('-')
         .appendValue(ChronoField.MONTH_OF_YEAR, 2)
         .appendLiteral('-')
         .appendValue(ChronoField.DAY_OF_MONTH, 2)
         .toFormatter(ResolverStyle.STRICT).withChronology(IsoChronology.INSTANCE);
-
-    DateTimeFormatter.ISO_LOCAL_TIME = new DateTimeFormatterBuilder()
+}
+    static get ISO_LOCAL_TIME() { return new DateTimeFormatterBuilder()
         .appendValue(ChronoField.HOUR_OF_DAY, 2)
         .appendLiteral(':')
         .appendValue(ChronoField.MINUTE_OF_HOUR, 2)
@@ -642,26 +639,26 @@ export function _init() {
         .optionalStart()
         .appendFraction(ChronoField.NANO_OF_SECOND, 0, 9, true)
         .toFormatter(ResolverStyle.STRICT);
-
-    DateTimeFormatter.ISO_LOCAL_DATE_TIME = new DateTimeFormatterBuilder()
+}
+    static get ISO_LOCAL_DATE_TIME() { return new DateTimeFormatterBuilder()
         .parseCaseInsensitive()
         .append(DateTimeFormatter.ISO_LOCAL_DATE)
         .appendLiteral('T')
         .append(DateTimeFormatter.ISO_LOCAL_TIME)
         .toFormatter(ResolverStyle.STRICT).withChronology(IsoChronology.INSTANCE);
-
-    DateTimeFormatter.ISO_INSTANT = new DateTimeFormatterBuilder()
+}
+    static get ISO_INSTANT() { return new DateTimeFormatterBuilder()
         .parseCaseInsensitive()
         .appendInstant()
         .toFormatter(ResolverStyle.STRICT);
-
-    DateTimeFormatter.ISO_OFFSET_DATE_TIME = new DateTimeFormatterBuilder()
+}
+    static get ISO_OFFSET_DATE_TIME() { return new DateTimeFormatterBuilder()
         .parseCaseInsensitive()
         .append(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
         .appendOffsetId()
         .toFormatter(ResolverStyle.STRICT).withChronology(IsoChronology.INSTANCE);
-
-    DateTimeFormatter.ISO_ZONED_DATE_TIME = new DateTimeFormatterBuilder()
+}
+    static get ISO_ZONED_DATE_TIME() { return new DateTimeFormatterBuilder()
         .append(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
         .optionalStart()
         .appendLiteral('[')
@@ -670,59 +667,59 @@ export function _init() {
         // .appendZoneRegionId()
         .appendLiteral(']')
         .toFormatter(ResolverStyle.STRICT).withChronology(IsoChronology.INSTANCE);
-
-    DateTimeFormatter.BASIC_ISO_DATE = new DateTimeFormatterBuilder()
+}
+    static get BASIC_ISO_DATE() { return new DateTimeFormatterBuilder()
         .appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
         .appendValue(ChronoField.MONTH_OF_YEAR, 2)
         .appendValue(ChronoField.DAY_OF_MONTH, 2)
         .toFormatter(ResolverStyle.STRICT).withChronology(IsoChronology.INSTANCE);
-
-    DateTimeFormatter.ISO_OFFSET_DATE = new DateTimeFormatterBuilder()
+}
+    static get ISO_OFFSET_DATE() { return new DateTimeFormatterBuilder()
         .parseCaseInsensitive()
         .append(DateTimeFormatter.ISO_LOCAL_DATE)
         .appendOffsetId()
         .toFormatter(ResolverStyle.STRICT).withChronology(IsoChronology.INSTANCE);
-
-    DateTimeFormatter.ISO_OFFSET_TIME = new DateTimeFormatterBuilder()
+}
+    static get ISO_OFFSET_TIME() { return new DateTimeFormatterBuilder()
         .parseCaseInsensitive()
         .append(DateTimeFormatter.ISO_LOCAL_TIME)
         .appendOffsetId()
         .toFormatter(ResolverStyle.STRICT).withChronology(IsoChronology.INSTANCE);
-
-    DateTimeFormatter.ISO_ORDINAL_DATE = new DateTimeFormatterBuilder()
+}
+    static get ISO_ORDINAL_DATE() { return new DateTimeFormatterBuilder()
         .appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
         .appendLiteral('-')
         .appendValue(ChronoField.DAY_OF_YEAR)
         .toFormatter(ResolverStyle.STRICT);
-
-    DateTimeFormatter.ISO_WEEK_DATE = new DateTimeFormatterBuilder()
+}
+    static get ISO_WEEK_DATE() { return new DateTimeFormatterBuilder()
         .appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
         .appendLiteral('-W')
         .appendValue(ChronoField.ALIGNED_WEEK_OF_YEAR)
         .appendLiteral('-')
         .appendValue(ChronoField.DAY_OF_WEEK)
         .toFormatter(ResolverStyle.STRICT);
-
+}
     // TODO:
     //  ISO_DATE - https://www.threeten.org/threetenbp/apidocs/org/threeten/bp/format/DateTimeFormatter.html#ISO_DATE
     //  ISO_TIME - https://www.threeten.org/threetenbp/apidocs/org/threeten/bp/format/DateTimeFormatter.html#ISO_TIME
     //  ISO_DATE_TIME - https://www.threeten.org/threetenbp/apidocs/org/threeten/bp/format/DateTimeFormatter.html#ISO_DATE_TIME
 
-    DateTimeFormatter.PARSED_EXCESS_DAYS = createTemporalQuery('PARSED_EXCESS_DAYS', (temporal) => {
+    static get PARSED_EXCESS_DAYS() { return createTemporalQuery('PARSED_EXCESS_DAYS', (temporal) => {
         if (temporal instanceof DateTimeBuilder) {
             return temporal.excessDays;
         } else {
             return Period.ZERO;
         }
     });
-
-    DateTimeFormatter.PARSED_LEAP_SECOND = createTemporalQuery('PARSED_LEAP_SECOND', (temporal) => {
+}
+    static get PARSED_LEAP_SECOND() { return createTemporalQuery('PARSED_LEAP_SECOND', (temporal) => {
         if (temporal instanceof DateTimeBuilder) {
             return temporal.leapSecond;
         } else {
             return false;
         }
     });
-
+}
 
 }

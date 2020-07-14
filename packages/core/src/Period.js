@@ -76,15 +76,15 @@ export class Period extends TemporalAmount /* extends ChronoPeriod */ {
         const _months =  MathUtil.safeToInt(months);
         const _days = MathUtil.safeToInt(days);
 
-        if( _years === 0 && _months === 0 && _days === 0 ){
-            if (!Period.ZERO) {
-                this._years = _years;
-                this._months =  _months;
-                this._days = _days;
-                Period.ZERO = this;
-            }
-            return Period.ZERO;
-        }
+        //if( _years === 0 && _months === 0 && _days === 0 ){
+        //    if (!Period.ZERO) {
+        //        this._years = _years;
+        //        this._months =  _months;
+        //        this._days = _days;
+        //        Period.ZERO = this;
+        //    }
+        //    return Period.ZERO;
+        //}
         
         /**
          * The number of years.
@@ -923,11 +923,9 @@ export class Period extends TemporalAmount /* extends ChronoPeriod */ {
     toJSON() {
         return this.toString();
     }
-}
 
-export function _init() {
     /**
      * A constant for a period of zero.
      */
-    Period.ofDays(0);
+    static get ZERO() {return Period.ofDays(0);}
 }

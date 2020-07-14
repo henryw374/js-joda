@@ -811,32 +811,16 @@ class Unit extends TemporalUnit {
     toString() {
         return this._name;
     }
+
+    static get DAY_OF_QUARTER() {delete IsoFields.DAY_OF_QUARTER; IsoFields.DAY_OF_QUARTER = new DAY_OF_QUARTER_FIELD(); return IsoFields.DAY_OF_QUARTER; }
+    static get QUARTER_OF_YEAR() {delete IsoFields.QUARTER_OF_YEAR; IsoFields.QUARTER_OF_YEAR = new QUARTER_OF_YEAR_FIELD(); return IsoFields.QUARTER_OF_YEAR; }
+    static get WEEK_OF_WEEK_BASED_YEAR() {delete IsoFields.WEEK_OF_WEEK_BASED_YEAR; IsoFields.WEEK_OF_WEEK_BASED_YEAR = new WEEK_OF_WEEK_BASED_YEAR_FIELD(); return IsoFields.WEEK_OF_WEEK_BASED_YEAR; }
+    static get WEEK_BASED_YEAR() {delete IsoFields.WEEK_BASED_YEAR; IsoFields.WEEK_BASED_YEAR = new WEEK_BASED_YEAR_FIELD(); return IsoFields.WEEK_BASED_YEAR; }
+    static get WEEK_BASED_YEARS() {delete IsoFields.WEEK_BASED_YEARS; IsoFields.WEEK_BASED_YEARS = new Unit('WeekBasedYears', Duration.ofSeconds(31556952)); return IsoFields.WEEK_BASED_YEARS; }
+    static get QUARTER_YEARS() {delete IsoFields.QUARTER_YEARS; IsoFields.QUARTER_YEARS = new Unit('QuarterYears', Duration.ofSeconds(31556952 / 4)); return IsoFields.QUARTER_YEARS; }
 }
 
-let DAY_OF_QUARTER = null;
-let QUARTER_OF_YEAR = null;
-let WEEK_OF_WEEK_BASED_YEAR = null;
-let WEEK_BASED_YEAR = null;
-let WEEK_BASED_YEARS = null;
-let QUARTER_YEARS = null;
-
-export function _init() {
-    DAY_OF_QUARTER = new DAY_OF_QUARTER_FIELD();
-    QUARTER_OF_YEAR = new QUARTER_OF_YEAR_FIELD();
-    WEEK_OF_WEEK_BASED_YEAR = new WEEK_OF_WEEK_BASED_YEAR_FIELD();
-    WEEK_BASED_YEAR = new WEEK_BASED_YEAR_FIELD();
-
-    WEEK_BASED_YEARS = new Unit('WeekBasedYears', Duration.ofSeconds(31556952));
-    QUARTER_YEARS = new Unit('QuarterYears', Duration.ofSeconds(31556952 / 4));
-
-    IsoFields.DAY_OF_QUARTER = DAY_OF_QUARTER;
-    IsoFields.QUARTER_OF_YEAR = QUARTER_OF_YEAR;
-    IsoFields.WEEK_OF_WEEK_BASED_YEAR = WEEK_OF_WEEK_BASED_YEAR;
-    IsoFields.WEEK_BASED_YEAR = WEEK_BASED_YEAR;
-    IsoFields.WEEK_BASED_YEARS = WEEK_BASED_YEARS;
-    IsoFields.QUARTER_YEARS = QUARTER_YEARS;
-
-    // this differs from threeten, but for ease of use we bring back good old joda time functionality
+// this differs from threeten, but for ease of use we bring back good old joda time functionality
     /**
      * the week of the week based year as defined by the ISO8601 Standard with a Monday-based week
      *
@@ -853,4 +837,3 @@ export function _init() {
     LocalDate.prototype.isoWeekyear = function () {
         return this.get(IsoFields.WEEK_BASED_YEAR);
     };
-}

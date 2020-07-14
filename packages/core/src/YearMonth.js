@@ -235,7 +235,7 @@ export class YearMonth extends Temporal {
      * @throws DateTimeParseException if the text cannot be parsed
      */
     static parseString(text) {
-        return YearMonth.parseStringFormatter(text, PARSER);
+        return YearMonth.parseStringFormatter(text, YearMonth.PARSER);
     }
 
     /**
@@ -1075,7 +1075,7 @@ export class YearMonth extends Temporal {
      * @return {String} a string representation of this year-month, not null
      */
     toString() {
-        return PARSER.format(this);
+        return YearMonth.PARSER.format(this);
     }
 
     /**
@@ -1100,19 +1100,15 @@ export class YearMonth extends Temporal {
         return formatter.format(this);
     }
 
-}
 
-let PARSER;
 
-export function _init() {
-
-    PARSER = new DateTimeFormatterBuilder()
+    static get PARSER() {return new DateTimeFormatterBuilder()
         .appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
         .appendLiteral('-')
         .appendValue(ChronoField.MONTH_OF_YEAR, 2)
-        .toFormatter();
+        .toFormatter();}
 
-    YearMonth.FROM = createTemporalQuery('YearMonth.FROM', (temporal) => {
+    static get FROM(){ return  createTemporalQuery('YearMonth.FROM', (temporal) => {
         return YearMonth.from(temporal);
-    });
+    });}
 }

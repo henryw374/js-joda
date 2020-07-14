@@ -1662,16 +1662,13 @@ implements Temporal, TemporalAdjuster, Serializable */ {
         return formatter.format(this);
     }
 
-}
-
-export function _init(){
     /**
      * The minimum supported {@link LocalDateTime}, '-999999999-01-01T00:00:00'.
      * This is the local date-time of midnight at the start of the minimum date.
      * This combines {@link LocalDate#MIN} and {@link LocalTime#MIN}.
      * This could be used by an application as a 'far past' date-time.
      */
-    LocalDateTime.MIN = LocalDateTime.of(LocalDate.MIN, LocalTime.MIN);
+    static get MIN() { return LocalDateTime.of(LocalDate.MIN, LocalTime.MIN);}
 
     /**
      * The maximum supported {@link LocalDateTime}, '+999999999-12-31T23:59:59.999999999'.
@@ -1679,9 +1676,9 @@ export function _init(){
      * This combines {@link LocalDate#MAX} and {@link LocalTime#MAX}.
      * This could be used by an application as a 'far future' date-time.
      */
-    LocalDateTime.MAX = LocalDateTime.of(LocalDate.MAX, LocalTime.MAX);
+    static get MAX() { return LocalDateTime.of(LocalDate.MAX, LocalTime.MAX);}
 
-    LocalDateTime.FROM = createTemporalQuery('LocalDateTime.FROM', (temporal) => {
+    static get FROM() { return createTemporalQuery('LocalDateTime.FROM', (temporal) => {
         return LocalDateTime.from(temporal);
-    });
+    });}
 }
