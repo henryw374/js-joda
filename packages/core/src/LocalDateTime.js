@@ -149,11 +149,11 @@ implements Temporal, TemporalAdjuster, Serializable */ {
      *
      * @returns {LocalDateTime}
      */
-    static of(){
-        if (arguments.length <= 2){
-            return LocalDateTime.ofDateAndTime.apply(this, arguments);
+    static of(a,b,c,d,e,f,g){
+        if (c == undefined){
+            return LocalDateTime.ofDateAndTime(a,b);
         } else {
-            return LocalDateTime.ofNumbers.apply(this, arguments);
+            return LocalDateTime.ofNumbers(a,b,c,d,e,f,g);
         }
     }
     /**

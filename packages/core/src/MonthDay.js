@@ -85,7 +85,7 @@ export class MonthDay extends TemporalAccessor {
      * @return {MonthDay} the current month-day using the system clock and default time-zone, not null
      */
     static now0() {
-        return this.nowClock(Clock.systemDefaultZone());
+        return MonthDay.nowClock(Clock.systemDefaultZone());
     }
 
     /**
@@ -102,7 +102,7 @@ export class MonthDay extends TemporalAccessor {
      */
     static nowZoneId(zone) {
         requireNonNull(zone, 'zone');
-        return this.nowClock(Clock.system(zone));
+        return MonthDay.nowClock(Clock.system(zone));
     }
 
     /**
