@@ -62,7 +62,7 @@ export class DayOfWeek extends TemporalAccessor {
      * @returns {DayOfWeek[]}
      */
     static values() {
-        return ENUMS.slice();
+        return DayOfWeek.ENUMS.slice();
     }
 
     /**
@@ -72,8 +72,8 @@ export class DayOfWeek extends TemporalAccessor {
      */
     static valueOf(name) {
         let ordinal = 0;
-        for(ordinal; ordinal < ENUMS.length; ordinal++){
-            if(ENUMS[ordinal].name() === name){
+        for(ordinal; ordinal < DayOfWeek.ENUMS.length; ordinal++){
+            if(DayOfWeek.ENUMS[ordinal].name() === name){
                 break;
             }
         }
@@ -95,7 +95,7 @@ export class DayOfWeek extends TemporalAccessor {
         if (dayOfWeek < 1 || dayOfWeek > 7) {
             throw new DateTimeException('Invalid value for DayOfWeek: ' + dayOfWeek);
         }
-        return ENUMS[dayOfWeek - 1];
+        return DayOfWeek.ENUMS[dayOfWeek - 1];
     }
 
     /**
@@ -291,7 +291,7 @@ export class DayOfWeek extends TemporalAccessor {
      */
     plus(days) {
         const amount = MathUtil.floorMod(days, 7);
-        return ENUMS[MathUtil.floorMod(this._ordinal + (amount + 7), 7)];
+        return DayOfWeek.ENUMS[MathUtil.floorMod(this._ordinal + (amount + 7), 7)];
     }
 
     /**

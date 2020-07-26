@@ -236,10 +236,11 @@ export class ZoneId {
     
       static get systemDefault() { return ZoneIdFactory.systemDefault; }
         static get getAvailableZoneIds() { return ZoneIdFactory.getAvailableZoneIds; }
-        static get of() { return ZoneIdFactory.of; }
         static get ofOffset() { return ZoneIdFactory.ofOffset; }
         static get from() { return ZoneIdFactory.from; }
         static get SYSTEM() { return ZoneIdFactory.SYSTEM_DEFAULT_ZONE_ID_INSTANCE; }
             static get UTC() { return ZoneOffset.ofTotalSeconds(0); }
       
 }
+
+ZoneId.of = ZoneIdFactory.of;
