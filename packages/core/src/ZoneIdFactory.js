@@ -181,7 +181,11 @@ export class ZoneIdFactory {
         return obj;
     }
 
-    static get SYSTEM_DEFAULT_ZONE_ID_INSTANCE() {return new SystemDefaultZoneId();}
+    static get SYSTEM_DEFAULT_ZONE_ID_INSTANCE() { 
+        delete ZoneIdFactory.SYSTEM_DEFAULT_ZONE_ID_INSTANCE; 
+        ZoneIdFactory.SYSTEM_DEFAULT_ZONE_ID_INSTANCE =  new SystemDefaultZoneId();
+        return ZoneIdFactory.SYSTEM_DEFAULT_ZONE_ID_INSTANCE;
+    }
 
     // a bit magic to stay a bit more to the threeten bp impl.
     
