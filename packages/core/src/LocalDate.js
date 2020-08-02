@@ -1676,18 +1676,18 @@ export class LocalDate extends ChronoLocalDate{
      * The minimum supported {@link LocalDate}
      * This could be used by an application as a "far past" date.
      */
-    static get MIN() { return LocalDate.of(YearConstants.MIN_VALUE, 1, 1);}
+    static get MIN() { delete LocalDate.MIN;LocalDate.MIN = LocalDate.of(YearConstants.MIN_VALUE, 1, 1); return LocalDate.MIN;}
     /**
      * The maximum supported {@link LocalDate}
      * This could be used by an application as a "far future" date.
      */
-    static get MAX() { return LocalDate.of(YearConstants.MAX_VALUE, 12, 31);}
+    static get MAX() { delete LocalDate.MAX; LocalDate.MAX = LocalDate.of(YearConstants.MAX_VALUE, 12, 31); return LocalDate.MAX;}
     /**
      * The date at epoch day 0, that is 1970-01-01.
      */
-    static get EPOCH_0() { return LocalDate.ofEpochDay(0);}
+    static get EPOCH_0() {delete LocalDate.EPOCH_0; LocalDate.EPOCH_0 = LocalDate.ofEpochDay(0); return LocalDate.EPOCH_0;}
 
-    static get FROM() { return createTemporalQuery('LocalDate.FROM', (temporal) => {
+    static get FROM() {delete LocalDate.FROM; LocalDate.FROM = createTemporalQuery('LocalDate.FROM', (temporal) => {
         return LocalDate.from(temporal);
-    });}
+    }); return LocalDate.FROM;}
 }

@@ -2001,7 +2001,7 @@ export class ZonedDateTime extends ChronoZonedDateTime {
     }
 
 
-    static get FROM() {return createTemporalQuery('ZonedDateTime.FROM', (temporal) => {
+    static get FROM() { delete ZonedDateTime.FROM; ZonedDateTime.FROM = createTemporalQuery('ZonedDateTime.FROM', (temporal) => {
         return ZonedDateTime.from(temporal);
-    });}
+    }); return ZonedDateTime.FROM; }
 }

@@ -1102,13 +1102,13 @@ export class YearMonth extends Temporal {
 
 
 
-    static get PARSER() {return new DateTimeFormatterBuilder()
+    static get PARSER() {delete  YearMonth.PARSER; YearMonth.PARSER = new DateTimeFormatterBuilder()
         .appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
         .appendLiteral('-')
         .appendValue(ChronoField.MONTH_OF_YEAR, 2)
-        .toFormatter();}
+        .toFormatter(); return YearMonth.PARSER;}
 
-    static get FROM(){ return  createTemporalQuery('YearMonth.FROM', (temporal) => {
+    static get FROM(){ delete  YearMonth.FROM; YearMonth.FROM =  createTemporalQuery('YearMonth.FROM', (temporal) => {
         return YearMonth.from(temporal);
-    });}
+    }); return YearMonth.FROM; }
 }

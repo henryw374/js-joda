@@ -927,5 +927,5 @@ export class Period extends TemporalAmount /* extends ChronoPeriod */ {
     /**
      * A constant for a period of zero.
      */
-    static get ZERO() {return Period.ofDays(0);}
+    static get ZERO() {delete Period.ZERO; Period.ZERO = Period.ofDays(0); return Period.ZERO;}
 }

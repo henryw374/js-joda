@@ -713,15 +713,16 @@ export class MonthDay extends TemporalAccessor {
     }
 
 
-    static get PARSER() { return new DateTimeFormatterBuilder()
+    static get PARSER() { delete  MonthDay.PARSER; MonthDay.PARSER =  new DateTimeFormatterBuilder()
         .appendLiteral('--')
         .appendValue(ChronoField.MONTH_OF_YEAR, 2)
         .appendLiteral('-')
         .appendValue(ChronoField.DAY_OF_MONTH, 2)
         .toFormatter();
+    return MonthDay.PARSER;
         }
 
-    static get FROM() {return  createTemporalQuery('MonthDay.FROM', (temporal) => {
+    static get FROM() {delete MonthDay.FROM; MonthDay.FROM =  createTemporalQuery('MonthDay.FROM', (temporal) => {
         return MonthDay.from(temporal);
-    });}
+    }); return MonthDay.FROM;}
 }

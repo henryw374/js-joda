@@ -239,7 +239,7 @@ export class ZoneId {
         static get ofOffset() { return ZoneIdFactory.ofOffset; }
         static get from() { return ZoneIdFactory.from; }
         static get SYSTEM() { return ZoneIdFactory.SYSTEM_DEFAULT_ZONE_ID_INSTANCE; }
-            static get UTC() { return ZoneOffset.ofTotalSeconds(0); }
+            static get UTC() {delete ZoneId.UTC; ZoneId.UTC = ZoneOffset.ofTotalSeconds(0); return ZoneId.UTC; }
       
 }
 

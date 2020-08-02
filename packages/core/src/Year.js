@@ -997,14 +997,8 @@ export class Year extends Temporal {
         return unit.between(this, end);
     }
 
-    static get MIN_VALUE() { return  YearConstants.MIN_VALUE;}
-    static get MAX_VALUE() {return  YearConstants.MAX_VALUE;}
-
-    static get PARSER() {return  new DateTimeFormatterBuilder()
-        .appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
-        .toFormatter();}
-
-    static get FROM (){ return createTemporalQuery('Year.FROM', (temporal) => {
-        return Year.from(temporal);
-    });}
+    static get MIN_VALUE() { delete Year.MIN_VALUE; Year.MIN_VALUE =  YearConstants.MIN_VALUE; return Year.MIN_VALUE;}
+    static get MAX_VALUE() {delete Year.MAX_VALUE; Year.MAX_VALUE =  YearConstants.MAX_VALUE; return Year.MAX_VALUE;}
+    static get PARSER() {delete Year.PARSER; Year.PARSER =  new DateTimeFormatterBuilder().appendValue(ChronoField.YEAR, 4, 10, SignStyle.EXCEEDS_PAD).toFormatter(); return Year.PARSER;}
+    static get FROM (){ delete Year.FROM; Year.FROM = createTemporalQuery('Year.FROM', (temporal) => {return Year.from(temporal);}); return Year.FROM;}
 }

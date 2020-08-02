@@ -477,9 +477,9 @@ export class ZoneOffset extends ZoneId {
         return this._id;
     }
 
-    static get MAX_SECONDS() { return 18 * LocalTime.SECONDS_PER_HOUR;}
-    static get UTC() { return ZoneOffset.ofTotalSeconds(0);}
-    static get MIN() { return ZoneOffset.ofTotalSeconds(-ZoneOffset.MAX_SECONDS);}
-    static get MAX() { return ZoneOffset.ofTotalSeconds(ZoneOffset.MAX_SECONDS);}
+    static get MAX_SECONDS() { delete ZoneOffset.MAX_SECONDS; ZoneOffset.MAX_SECONDS = 18 * LocalTime.SECONDS_PER_HOUR; return ZoneOffset.MAX_SECONDS; }
+    static get UTC() { delete ZoneOffset.UTC; ZoneOffset.UTC = ZoneOffset.ofTotalSeconds(0); return ZoneOffset.UTC; }
+    static get MIN() { delete ZoneOffset.MIN; ZoneOffset.MIN = ZoneOffset.ofTotalSeconds(-ZoneOffset.MAX_SECONDS); return ZoneOffset.MIN; }
+    static get MAX() { delete ZoneOffset.MAX; ZoneOffset.MAX = ZoneOffset.ofTotalSeconds(ZoneOffset.MAX_SECONDS); return ZoneOffset.MAX; }
     static get from() {return ZoneIdFactory.from;}
 }

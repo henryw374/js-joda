@@ -577,18 +577,18 @@ export class Month extends TemporalAccessor {
     }
 
 
-    static get JANUARY () { return new Month(1, 'JANUARY');}
-    static get FEBRUARY () { return new Month(2, 'FEBRUARY');}
-    static get MARCH () { return new Month(3, 'MARCH');}
-    static get APRIL () { return new Month(4, 'APRIL');}
-    static get MAY () { return new Month(5, 'MAY');}
-    static get JUNE () { return new Month(6, 'JUNE');}
-    static get JULY () { return new Month(7, 'JULY');}
-    static get AUGUST () { return new Month(8, 'AUGUST');}
-    static get SEPTEMBER () { return new Month(9, 'SEPTEMBER');}
-    static get OCTOBER () { return new Month(10, 'OCTOBER');}
-    static get NOVEMBER () { return new Month(11, 'NOVEMBER');}
-    static get DECEMBER () { return new Month(12, 'DECEMBER');}
+    static get JANUARY () { delete Month.JANUARY; Month.JANUARY =  new Month(1, 'JANUARY'); return Month.JANUARY; }
+    static get FEBRUARY () { delete Month.FEBRUARY; Month.FEBRUARY =  new Month(2, 'FEBRUARY'); return Month.FEBRUARY; }
+    static get MARCH () { delete Month.MARCH; Month.MARCH =  new Month(3, 'MARCH'); return Month.MARCH; }
+    static get APRIL () { delete Month.APRIL; Month.APRIL =  new Month(4, 'APRIL'); return Month.APRIL; }
+    static get MAY () { delete Month.MAY; Month.MAY =  new Month(5, 'MAY'); return Month.MAY; }
+    static get JUNE () { delete Month.JUNE; Month.JUNE =  new Month(6, 'JUNE'); return Month.JUNE; }
+    static get JULY () { delete Month.JULY; Month.JULY =  new Month(7, 'JULY'); return Month.JULY; }
+    static get AUGUST () { delete Month.AUGUST; Month.AUGUST =  new Month(8, 'AUGUST'); return Month.AUGUST; }
+    static get SEPTEMBER () { delete Month.SEPTEMBER; Month.SEPTEMBER =  new Month(9, 'SEPTEMBER'); return Month.SEPTEMBER; }
+    static get OCTOBER () { delete Month.OCTOBER; Month.OCTOBER =  new Month(10, 'OCTOBER'); return Month.OCTOBER; }
+    static get NOVEMBER () { delete Month.NOVEMBER; Month.NOVEMBER =  new Month(11, 'NOVEMBER'); return Month.NOVEMBER; }
+    static get DECEMBER () { delete Month.DECEMBER; Month.DECEMBER =  new Month(12, 'DECEMBER'); return Month.DECEMBER; }
 
     static get MONTHS() {return [
         Month.JANUARY, Month.FEBRUARY, Month.MARCH, Month.APRIL, Month.MAY, Month.JUNE,
