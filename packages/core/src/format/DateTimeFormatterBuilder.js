@@ -32,17 +32,6 @@ import {SettingsParser} from './parser/SettingsParser';
 import {StringLiteralPrinterParser} from './parser/StringLiteralPrinterParser';
 import {ZoneIdPrinterParser} from './parser/ZoneIdPrinterParser';
 
-const CompositePrinterParserx = CompositePrinterParser
-const PadPrinterParserDecoratorx = PadPrinterParserDecorator
-const SettingsParserx = SettingsParser
-const StringLiteralPrinterParserx = StringLiteralPrinterParser
-const CharLiteralPrinterParserx = CharLiteralPrinterParser
-const NumberPrinterParserx = NumberPrinterParser
-const ReducedPrinterParserx = ReducedPrinterParser
-const FractionPrinterParserx = FractionPrinterParser
-const OffsetIdPrinterParserx = OffsetIdPrinterParser
-const ZoneIdPrinterParserx = ZoneIdPrinterParser
-
 const MAX_WIDTH = 15; // can't parse all numbers with more then 15 digits in javascript
 
 export class DateTimeFormatterBuilder {
@@ -1398,16 +1387,16 @@ export class DateTimeFormatterBuilder {
     }
     
     //static get CharLiteralPrinterParser() { return StringLiteralPrinterParser; }
-        static get CompositePrinterParser() { return CompositePrinterParserx; }
-        static get PadPrinterParserDecorator() { return PadPrinterParserDecoratorx; }
-        static get SettingsParser() { return SettingsParserx; }
-        static get StringLiteralPrinterParser() { return StringLiteralPrinterParserx; }
-        static get CharLiteralPrinterParser() { return CharLiteralPrinterParserx; }
-        static get NumberPrinterParser() { return NumberPrinterParserx; }
-        static get ReducedPrinterParser() { return ReducedPrinterParserx; }
-        static get FractionPrinterParser() { return FractionPrinterParserx; }
-        static get OffsetIdPrinterParser() { return OffsetIdPrinterParserx; }
-        static get ZoneIdPrinterParser() { return ZoneIdPrinterParserx; }
+        static get CompositePrinterParser() { return CompositePrinterParser; }
+        static get PadPrinterParserDecorator() { return PadPrinterParserDecorator; }
+        static get SettingsParser() { return SettingsParser; }
+        static get StringLiteralPrinterParser() { return StringLiteralPrinterParser; }
+        static get CharLiteralPrinterParser() { return CharLiteralPrinterParser; }
+        static get NumberPrinterParser() { return NumberPrinterParser; }
+        static get ReducedPrinterParser() { return ReducedPrinterParser; }
+        static get FractionPrinterParser() { return FractionPrinterParser; }
+        static get OffsetIdPrinterParser() { return OffsetIdPrinterParser; }
+        static get ZoneIdPrinterParser() { return ZoneIdPrinterParser; }
 
 }
 

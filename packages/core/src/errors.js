@@ -3,14 +3,32 @@
  * @license BSD-3-Clause (see LICENSE in the root directory of this source tree)
  */
 
+function createErrorType(name, init, superErrorClass = Error) {
+    function JsJodaException(message) {
+        if (!Error.captureStackTrace) {
+            this.stack = (new Error()).stack;
+        } else {
+            Error.captureStackTrace(this, this.constructor);
+        }
+        this.message = message;
+        init && init.apply(this, arguments);
+        this.toString = function () {
+            return `${this.name}: ${this.message}`;
+        };
+    }
+    JsJodaException.prototype = Object.create(superErrorClass.prototype);
+    JsJodaException.prototype.name = name;
+    JsJodaException.prototype.constructor = JsJodaException;
+    return JsJodaException;
+}
 
-export class DateTimeException                 extends Error {} //= createErrorType('DateTimeException', messageWithCause);
-export class DateTimeParseException            extends Error {} //= createErrorType('DateTimeParseException', messageForDateTimeParseException);
-export class UnsupportedTemporalTypeException  extends Error {} //= createErrorType('UnsupportedTemporalTypeException', null, DateTimeException);
-export class ArithmeticException               extends Error {} //= createErrorType('ArithmeticException');
-export class IllegalArgumentException          extends Error {} //= createErrorType('IllegalArgumentException');
-export class IllegalStateException             extends Error {} //= createErrorType('IllegalStateException');
-export class NullPointerException              extends Error {} //= createErrorType('NullPointerException');
+export const DateTimeException = createErrorType('DateTimeException', messageWithCause);
+export const DateTimeParseException = createErrorType('DateTimeParseException', messageForDateTimeParseException);
+export const UnsupportedTemporalTypeException = createErrorType('UnsupportedTemporalTypeException', null, DateTimeException);
+export const ArithmeticException = createErrorType('ArithmeticException');
+export const IllegalArgumentException = createErrorType('IllegalArgumentException');
+export const IllegalStateException = createErrorType('IllegalStateException');
+export const NullPointerException = createErrorType('NullPointerException');
 
 function messageWithCause(message, cause = null) {
     let msg = message || this.name;
